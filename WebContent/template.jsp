@@ -23,15 +23,16 @@
 			<div>
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="#">Home</a></li>
-					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Item 1 <span class="caret"></span></a>
+					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Consulta <span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="#">sub-item 1.1</a></li>
-							<li><a href="#">sub-item 1.2</a></li>
-							<li><a href="#">sub-item 1.2</a></li>
+							<li><a href="#">Marcar Consulta</a></li>
+							<li><a href="#">Listar Consulta</a></li>
 						</ul>
 					</li>
-					<li><a href="#">Item 2</a></li>
-					<li><a href="#">Item 3</a></li>
+					<li><a href="#">Exibir Agenda</a></li>					
+					<li><a href="#">Médico</a></li>
+					<li><a href="#">Funcionário</a></li>
+					<li><a href="#">Convênio</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Cadastar <span class="caret"></span></a>
