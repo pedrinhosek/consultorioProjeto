@@ -13,7 +13,7 @@
 	
 	<servlet>
 		<servlet-name>convenio</servlet-name>
-		<servlet-class>com.projeto.servlet.Convenio</servlet-class>
+		<servlet-class>com.projeto.servlet.ConvenioServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>convenio</servlet-name>
