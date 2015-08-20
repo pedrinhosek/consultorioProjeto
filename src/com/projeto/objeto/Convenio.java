@@ -17,8 +17,4 @@ public class Convenio {
 	public void setMatricula(String matricula) {
 		this.matricula = matricula;
 	}
-	
-
-	
-	
 }

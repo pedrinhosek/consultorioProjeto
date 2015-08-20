@@ -29,7 +29,7 @@
 					<li><a href="#">Exibir Agenda</a></li>					
 					<li><a href="#">Médico</a></li>
 					<li><a href="#">Funcionário</a></li>
-					<li><a href="#">Convênio</a></li>
+					<li><a href="/projetoPI/convenio/lista-convenio.jsp">Convênio</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Cadastar <span class="caret"></span></a>
@@ -37,7 +37,7 @@
 							<li><a href="#">Funcionário</a></li>
 							<li><a href="#">Médico</a></li>
 							<li><a href="#">Paciente</a></li>
-							<li><a href="http://localhost:8081/projetoPI/convenio/cadastro-convenio.jsp">Convênio</a></li>
+							<li><a href="/projetoPI/convenio/cadastro-convenio.jsp">Convênio</a></li>
 						</ul>
 					 </li>
 					<li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logoff</a></li>
@@ -51,8 +51,9 @@
 			<div class="col-sm-3"></div>
 			<div class="col-sm-6" >
 			<form method="post" action="../convenio">
+				<input type="hidden" name="acao" value="cadastrar">
 				<h2>Cadastro de novo Convênio</h2>
-				<label for="usr">Name do Convênio:</label>
+				<label for="usr">Nome do Convênio:</label>
 				<input type="text" class="form-control" name="convenio" />
 				<label for="usr">Matricula:</label>
 				<input type="text" class="form-control" name="matricula" />

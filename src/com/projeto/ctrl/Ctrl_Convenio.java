@@ -11,7 +11,11 @@ public class Ctrl_Convenio {
 	public void validarDados(Convenio convenio) throws ClassNotFoundException, SQLException {
 		
 		convenioBanco.insert(convenio);
+
+	}
+	public void atualizarConvenio(Convenio convenio) throws ClassNotFoundException {
 		
+		convenioBanco.update(convenio);
 		
 	}
 	

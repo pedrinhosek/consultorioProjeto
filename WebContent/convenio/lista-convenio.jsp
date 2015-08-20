@@ -14,8 +14,12 @@
 	<link rel="stylesheet" href="../bootstrap/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
 	
-	<script src="../bootstrap/js/jquery.min.js"></script>
 	<script src="../bootstrap/js/bootstrap.min.js"></script>
+	<script src="../bootstrap/js/jquery.min.js"></script>
+	
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <body>
 
 	<nav class="navbar navbar-inverse">
@@ -35,7 +39,7 @@
 					<li><a href="#">Exibir Agenda</a></li>					
 					<li><a href="#">Médico</a></li>
 					<li><a href="#">Funcionário</a></li>
-					<li><a href="#">Convênio</a></li>
+					<li><a href="/projetoPI/convenio/lista-convenio.jsp">Convênio</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Cadastar <span class="caret"></span></a>
@@ -43,7 +47,7 @@
 							<li><a href="#">Funcionário</a></li>
 							<li><a href="#">Médico</a></li>
 							<li><a href="#">Paciente</a></li>
-							<li><a href="http://localhost:8081/projetoPI/convenio/cadastro-convenio.jsp">Convênio</a></li>
+							<li><a href="/projetoPI/convenio/cadastro-convenio.jsp">Convênio</a></li>
 						</ul>
 					 </li>
 					<li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logoff</a></li>
@@ -74,12 +78,24 @@
 					<tr>
 						<td><span><%out.println(convenio.getNome());%></span></td>
 						<td><span><%out.println(convenio.getMatricula());%></span></td>
+						<%
+						String nome = convenio.getNome();
+						String matricula = convenio.getMatricula();
+						%>
 						<td align="center">
-							<button type="button" class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></button>
-							<button type="button" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span></button>
+						<form method="post" action="../convenio">
+							<input type="hidden" name="chave" value="<%out.println(convenio.getMatricula());%>">
+							<input type="hidden" name="nome" value="<%out.println(convenio.getNome());%>">
+							<button type="submit" class="btn btn-warning btn-sm" name="acao" value="edit">
+								<span class="glyphicon glyphicon-pencil"></span>
+							</button>
+							<button type="submit" class="btn btn-danger btn-sm" name="acao" value="del">
+								<span class="glyphicon glyphicon-remove"></span>
+							</button>
+						</form>
 						</td>
 					</tr>
-				</tbody>
+				</tbody>	
 				<%
 					}
 				}catch (Exception e) {
@@ -91,6 +107,13 @@
 			<div class="col-sm-3"></div>
 		</div>
 	</div>
+	
+
+
+
+
+
+
 
 
 
