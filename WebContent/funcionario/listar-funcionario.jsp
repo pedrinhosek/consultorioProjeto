@@ -1,4 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page import="com.projeto.objeto.Funcionario"%>
+<%@page import="java.util.List"%>
+<%@page import="com.projeto.banco.FuncionarioDao"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -45,30 +49,62 @@
 			</div>
 		</div>
 	</nav>
-  
+	  
 	<div class="container">
 	<ul class="breadcrumb">
 		<li><a href="../template.jsp">Inicio</a> <span class="divider"></span></li>
-		<li class="active">Cadastro de Convênio</li>
+		<li class="active">Lista de Funcionários</li>
 	</ul>
-		<div class="row">
-			<div class="col-sm-3"></div>
-			<div class="col-sm-6" >
-			<form method="post" action="../funcionario">
-				<input type="hidden" name="acao" value="cadastrar">
-				<h2>Cadastro de novo Convênio</h2>
-				<label for="usr">Nome do Convênio:</label>
-				<input type="text" class="form-control" name="convenio" required />
-				<label for="usr">Matricula:</label>
-				<input type="text" class="form-control" name="matricula" required />
-				<br />
-				<div style="float:right;">
-					<button type="submit" class="btn btn-success">Cadastrar</button>
-				</div>
-		  	</form>
-			</div>
-			<div class="col-sm-3" ></div>
-		</div>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>CPF</th>
+					<th>Nome</th>
+					<th>E-mail</th>
+					<th>Cargo</th>
+					<th>Login</th>
+					<th>
+						<center>
+							Editar/Excluir
+						</center>
+					</th>
+				</tr>
+			</thead>
+			<%
+			try{
+				FuncionarioDao funcionarioDAO = new FuncionarioDao();
+				List<Funcionario> funcData = funcionarioDAO.listFuncionarios();
+				for(Funcionario func : funcData){
+			%>
+			<tbody>
+				<tr>
+					<td><span><%out.println(func.getCpf());%></span></td>
+					<td><span><%out.println(func.getNome());%></span></td>
+					<td><span><%out.println(func.getEmail());%></span></td>
+					<td><span><%out.println(func.getCargo());%></span></td>
+					<td><span><%out.println(func.getLogin());%></span></td>
+	
+					<td align="center">
+					<form method="post" action="../funcionario">
+						<input type="hidden" name="cpf" value="<%out.print(func.getCpf());%>">
+						<button type="submit" class="btn btn-warning btn-sm" name="acao" value="edit">
+							<span class="glyphicon glyphicon-pencil"></span>
+						</button>
+						<button type="submit" class="btn btn-danger btn-sm" name="acao" value="del">
+							<span class="glyphicon glyphicon-remove"></span>
+						</button>
+					</form>
+					</td>
+				</tr>
+			</tbody>
+			<%
+				}
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+			%>
+		</table>
+		
 	</div>
 
 </body>

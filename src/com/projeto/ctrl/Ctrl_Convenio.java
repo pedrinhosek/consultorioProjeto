@@ -14,7 +14,7 @@ public class Ctrl_Convenio {
 
 	}
 	public void atualizarConvenio(Convenio convenio) throws ClassNotFoundException {
-		
+		System.out.println("entrei aqui 2");
 		convenioBanco.update(convenio);
 		
 	}

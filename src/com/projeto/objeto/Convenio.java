@@ -3,7 +3,7 @@ package com.projeto.objeto;
 public class Convenio {
 	
 	String nome;
-	String matricula;
+	int matricula;
 	
 	public String getNome() {
 		return nome;
@@ -11,10 +11,10 @@ public class Convenio {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String getMatricula() {
+	public int getMatricula() {
 		return matricula;
 	}
-	public void setMatricula(String matricula) {
+	public void setMatricula(int matricula) {
 		this.matricula = matricula;
 	}
 }

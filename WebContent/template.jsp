@@ -26,18 +26,18 @@
 					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Consulta <span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="#">Marcar Consulta</a></li>
-							<li><a href="#">Listar Consulta</a></li>
 						</ul>
 					</li>
 					<li><a href="#">Exibir Agenda</a></li>					
 					<li><a href="#">Médico</a></li>
-					<li><a href="#">Funcionário</a></li>
+					<li><a href="#">Paciente</a></li>
+					<li><a href="/projetoPI/funcionario/listar-funcionario.jsp">Funcionário</a></li>
 					<li><a href="/projetoPI/convenio/lista-convenio.jsp">Convênio</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Cadastar <span class="caret"></span></a>
+					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Cadastrar <span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="#">Funcionário</a></li>
+							<li><a href="/projetoPI/funcionario/cadastro-funcionario.jsp">Funcionário</a></li>
 							<li><a href="#">Médico</a></li>
 							<li><a href="#">Paciente</a></li>
 							<li><a href="/projetoPI/convenio/cadastro-convenio.jsp">Convênio</a></li>

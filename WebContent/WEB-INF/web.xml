@@ -19,5 +19,23 @@
 		<servlet-name>convenio</servlet-name>
 		<url-pattern>/convenio</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>funcionario</servlet-name>
+		<servlet-class>com.projeto.servlet.FuncionarioServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>funcionario</servlet-name>
+		<url-pattern>/funcionario</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>paciente</servlet-name>
+		<servlet-class>com.projeto.servlet.PacienteServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>paciente</servlet-name>
+		<url-pattern>/paciente</url-pattern>
+	</servlet-mapping>
 
 </web-app>

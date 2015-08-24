@@ -25,7 +25,8 @@ public class ConvenioServlet extends HttpServlet{
 		String acao = req.getParameter("acao");
 		
 		String nomeConvenio = req.getParameter("convenio");
-		String matricula = req.getParameter("matricula");
+		String mattxt = req.getParameter("matricula");
+		int matricula = Integer.parseInt(mattxt);
 		
 		convenio.setNome(nomeConvenio);
 		convenio.setMatricula(matricula);
@@ -41,18 +42,14 @@ public class ConvenioServlet extends HttpServlet{
 		}
 		
 		//edit convenio
-		if(acao.equals("edit")){
-			String chave = req.getParameter("chave");
-			String nome = req.getParameter("nome");
-			
-			
+		if(acao.equals("edit")){			
 			RequestDispatcher envio = null;  
-			String urlRetorno = "/convenio/editar-convenio.jsp?chave="+chave+"&nome="+nome+"";  
+			String urlRetorno = "/convenio/editar-convenio.jsp?chave="+matricula+"&nome="+nomeConvenio+"";  
 			envio = req.getRequestDispatcher(urlRetorno);  
 			envio.forward(req, resp); 
-
 		}
 		if(acao.equals("atualizar")){
+			System.out.println("enteri aqui 1");
 			try {
 				Ctrlconvenio.atualizarConvenio(convenio);
 			} catch (ClassNotFoundException e) {
@@ -60,14 +57,15 @@ public class ConvenioServlet extends HttpServlet{
 			}
 		}
 		
-		
-		
 		//Exclusao do convenio
 		if(acao.equals("del")){
-			
+			try {
+				System.out.println("entrei na servlet");
+				bancoConvenio.delete(matricula);
+			} catch (ClassNotFoundException | SQLException e) {
+				e.printStackTrace();
+			}
 		}
-
-		
 	}
 
 }

@@ -18,7 +18,7 @@ public class ConvenioDao {
 		String sqlInsert = "INSERT INTO convenio (matricula, nome_convenio) VALUES (?,?)";
 		PreparedStatement stmt = connection.prepareStatement(sqlInsert);
 		try {
-			stmt.setString(1, convenio.getMatricula());
+			stmt.setInt(1, convenio.getMatricula());
 			stmt.setString(2, convenio.getNome());
 			boolean execute = stmt.execute();
 			stmt.close();
@@ -37,7 +37,7 @@ public class ConvenioDao {
 			ResultSet result = stmt.executeQuery();
 			while(result.next()){				
 				Convenio convenio = new Convenio();
-				convenio.setMatricula(result.getString("matricula"));
+				convenio.setMatricula(result.getInt("matricula"));
 				convenio.setNome(result.getString("nome_convenio"));
 				convenioData.add(convenio);
 			}
@@ -51,15 +51,14 @@ public class ConvenioDao {
 	
 	public boolean update(Convenio convenio) throws ClassNotFoundException{
 		String sqlUpdate = "UPDATE convenio SET nome_convenio=? WHERE matricula=?";
-		System.out.println(convenio.getMatricula());
 		try {
 			Connection connection = new Conexao().getConexao();
 			PreparedStatement stmt = connection.prepareStatement(sqlUpdate);
 			
 			stmt.setString(1, convenio.getNome());
-			stmt.setString(2, convenio.getNome());
-			stmt.execute();
-			return true;			
+			stmt.setInt(2, convenio.getMatricula());
+			System.out.println(stmt.execute());
+			return stmt.execute();			
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
@@ -70,18 +69,34 @@ public class ConvenioDao {
 			Connection connection = new Conexao().getConexao();
 			List<Convenio> convenioData = new ArrayList<Convenio>();
 			String findSql = "SELECT * FROM loginFuncionario WHERE login IN ('"+chave+"')";
+			System.out.println(findSql);
 			java.sql.PreparedStatement stmt = connection.prepareStatement(findSql);
 			ResultSet result = stmt.executeQuery();
 			
 			while(result.next()){
 				Convenio convenio = new Convenio();
-				convenio.setMatricula(result.getString("matricula"));
+				convenio.setMatricula(result.getInt("matricula"));
 				convenio.setNome(result.getString("nome_convenio"));
 				convenioData.add(convenio);
 			}
 			result.close();
 			stmt.close();
 			return convenioData;
+		}catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	public boolean delete(int matricula) throws SQLException, ClassNotFoundException{
+		Connection connection = new Conexao().getConexao();
+		String sqldelete = "DELETE FROM convenio WHERE matricula=?";
+		PreparedStatement stmt = connection.prepareStatement(sqldelete);
+		try{
+			System.out.println(matricula);
+			stmt.setInt(1, matricula);
+			stmt.execute();
+			System.out.println(stmt.execute());
+			return true;
 		}catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
