@@ -83,7 +83,6 @@ public class FuncionarioDao {
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
-		
 	}
 	
 	public boolean update(Funcionario funcionario) throws ClassNotFoundException {

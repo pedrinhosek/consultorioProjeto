@@ -87,8 +87,6 @@
 						</tr>
 					</tbody>
 					</table>
-					<input type="hidden" name="tipoUsu" value="paciente">
-					<input type="hidden" name="status" value="ativo">
 					<br />
 					<table>
 					<tbody>
@@ -101,6 +99,8 @@
 					</tbody>
 					</table>
 					<br />
+					<input type="hidden" name="tipoUsu" value="paciente">
+					<input type="hidden" name="status" value="ativo">
 					<div style="float:right;">
 						<button type="submit" class="btn btn-success">Cadastrar</button>
 					</div><br /><br />				
