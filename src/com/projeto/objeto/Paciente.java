@@ -8,7 +8,35 @@ public class Paciente {
 	String email;
 	String estado;
 	String sexo;
+	String tipoUsu;
+	String usuario;
+	String senha;
+	String status;
 	
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public String getSenha() {
+		return senha;
+	}
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+	public String getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+	public String getTipoUsu() {
+		return tipoUsu;
+	}
+	public void setTipoUsu(String tipoUsu) {
+		this.tipoUsu = tipoUsu;
+	}
 	public int getCpf() {
 		return cpf;
 	}

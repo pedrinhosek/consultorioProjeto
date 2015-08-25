@@ -7,10 +7,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.projeto.ctrl.Ctrl_Paciente;
+import com.projeto.objeto.Paciente;
+
 public class PacienteServlet extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		Paciente paciente = new Paciente();
+		Ctrl_Paciente pacienteCtrl = new Ctrl_Paciente();
+		String acao = req.getParameter("acao");
+		
 		
 		int cpf = Integer.parseInt(req.getParameter("cpf"));
 		int idade = Integer.parseInt(req.getParameter("idade"));
@@ -23,16 +30,36 @@ public class PacienteServlet extends HttpServlet{
 		String senha = req.getParameter("senha");
 		String status = req.getParameter("status");
 		
-		System.out.println(cpf);
-		System.out.println(idade);
-		System.out.println(nome);
-		System.out.println(email);
-		System.out.println(estado);
-		System.out.println(sexo);
-		System.out.println(tipoUsu);
-		System.out.println(usuario);
-		System.out.println(senha);
-		System.out.println(status);
+		paciente.setCpf(cpf);
+		paciente.setIdade(idade);
+		paciente.setNome(nome);
+		paciente.setEmail(email);
+		paciente.setEstado(estado);
+		paciente.setSexo(sexo);
+		paciente.setTipoUsu(tipoUsu);
+		paciente.setUsuario(usuario);
+		paciente.setSenha(senha);
+		paciente.setStatus(status);
+
+		if(acao.equals("cadastrar")){
+			pacienteCtrl.validarDadosCadastro(paciente);
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 	}
 	
