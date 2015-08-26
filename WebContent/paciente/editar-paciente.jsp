@@ -98,6 +98,8 @@
 					<label for="usr">Senha:</label>
 					<input type="password" class="form-control" name="senha" value="<%out.println(paciente.getSenha());%>" required />
 					<input type="hidden" name="tipoUsu" value="<%out.println(paciente.getTipoUsu());%>">
+					<input type="hidden" name="estado" value="<%out.println(paciente.getEstado());%>">
+					<input type="hidden" name="status" value="<%out.println(paciente.getStatus());%>">
 					<br />
 					<div style="float:right;">
 						<button type="submit" class="btn btn-success">Atualizar</button>

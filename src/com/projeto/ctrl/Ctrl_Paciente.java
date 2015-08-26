@@ -15,4 +15,11 @@ public class Ctrl_Paciente {
 		
 	}
 
+
+	public void validarAtualização(Paciente paciente) throws ClassNotFoundException {
+		
+		pacienteBanco.update(paciente);
+		
+	}
+
 }

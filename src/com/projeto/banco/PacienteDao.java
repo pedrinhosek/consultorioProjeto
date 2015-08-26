@@ -98,7 +98,39 @@ public class PacienteDao {
 		}
 	}
 	
+	public boolean updateDelete(int cpf) throws ClassNotFoundException {
+		String sqlUpdateDelete = "UPDATE paciente SET status='inativo' WHERE cpf=?;";
+		try{
+			Connection connection = new Conexao().getConexao();
+			PreparedStatement stmt = connection.prepareStatement(sqlUpdateDelete);
+			stmt.setInt(1, cpf);
+			return stmt.execute();
+		}catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+		
+	}
 	
+	public boolean update(Paciente paciente) throws ClassNotFoundException{
+		String sqlUpdate = "UPDATE paciente SET idade=?, nome=?, email=?, estado=?, sexo=?, tipoUsu=?, usuario=?, senha=?, status=? WHERE cpf=?";
+		try{
+			Connection connection = new Conexao().getConexao();
+			PreparedStatement stmt = connection.prepareStatement(sqlUpdate);
+			stmt.setInt(1, paciente.getIdade());
+			stmt.setString(2, paciente.getNome());
+			stmt.setString(3, paciente.getEmail());
+			stmt.setString(4, paciente.getEstado());
+			stmt.setString(5, paciente.getSexo());
+			stmt.setString(6, paciente.getTipoUsu());
+			stmt.setString(7, paciente.getUsuario());
+			stmt.setString(8, paciente.getSenha());
+			stmt.setString(9, paciente.getStatus());
+			stmt.setInt(10, paciente.getCpf());
+			return stmt.execute();
+		}catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 	
 	
 	
