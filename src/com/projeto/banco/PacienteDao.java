@@ -99,7 +99,7 @@ public class PacienteDao {
 	}
 	
 	public boolean updateDelete(int cpf) throws ClassNotFoundException {
-		String sqlUpdateDelete = "UPDATE paciente SET status='inativo' WHERE cpf=?;";
+		String sqlUpdateDelete = "UPDATE paciente SET status='excluido' WHERE cpf=?;";
 		try{
 			Connection connection = new Conexao().getConexao();
 			PreparedStatement stmt = connection.prepareStatement(sqlUpdateDelete);

@@ -77,7 +77,7 @@
 				PacienteDao pacienteDAO = new PacienteDao();
 				List<Paciente> pacienteData = pacienteDAO.List();
 				for(Paciente paciente : pacienteData){
-					if(paciente.getStatus().equals("ativo")){
+					if(paciente.getStatus().contains("ativo")){
 			%>
 			<tbody>
 				<tr>

@@ -48,6 +48,7 @@ public class PacienteServlet extends HttpServlet{
 			paciente.setStatus(status);
 			try {
 				pacienteCtrl.validarDadosCadastro(paciente);
+				resp.sendRedirect("template.jsp");
 			} catch (ClassNotFoundException | SQLException e) {
 				e.printStackTrace();
 			}
@@ -57,6 +58,7 @@ public class PacienteServlet extends HttpServlet{
 			int cpf = Integer.parseInt(req.getParameter("cpf"));
 			try {
 				pacienteBanco.updateDelete(cpf);
+				resp.sendRedirect("template.jsp");
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
@@ -95,6 +97,7 @@ public class PacienteServlet extends HttpServlet{
 			
 			try {
 				pacienteCtrl.validarAtualização(paciente);
+				resp.sendRedirect("template.jsp");
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}

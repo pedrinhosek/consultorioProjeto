@@ -30,7 +30,7 @@
 					</li>
 					<li><a href="#">Exibir Agenda</a></li>					
 					<li><a href="#">Médico</a></li>
-					<li><a href="#">Paciente</a></li>
+					<li><a href="/projetoPI/paciente/listar-paciente.jsp">Paciente</a></li>
 					<li><a href="/projetoPI/funcionario/listar-funcionario.jsp">Funcionário</a></li>
 					<li><a href="/projetoPI/convenio/lista-convenio.jsp">Convênio</a></li>
 				</ul>
