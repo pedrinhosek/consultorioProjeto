@@ -37,5 +37,16 @@
 		<servlet-name>paciente</servlet-name>
 		<url-pattern>/paciente</url-pattern>
 	</servlet-mapping>
-
+	
+	<servlet>
+		<servlet-name>medico</servlet-name>
+		<servlet-class>com.projeto.servlet.MedicoServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>medico</servlet-name>
+		<url-pattern>/medico</url-pattern>
+	</servlet-mapping>
+	
+	
+	
 </web-app>
