@@ -9,8 +9,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
-	<link rel="stylesheet" href="../bootstrap/css/bootstrap-theme.min.css">
-	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 	
 	<script src="../bootstrap/js/jquery.min.js"></script>
 	<script src="../bootstrap/js/bootstrap.min.js"></script>
@@ -55,61 +55,55 @@
 		<li><a href="../template.jsp">Inicio</a> <span class="divider"></span></li>
 		<li class="active">Lista de Funcionários</li>
 	</ul>
-		<table class="table table-hover">
-			<thead>
-				<tr>
-					<th>CRM</th>
-					<th>Nome</th>
-					<th>E-mail</th>
-					<th>Cargo</th>
-					<th>Especialidade</th>
-					<th>Jornada</th>
-					<th>login</th>
-					<th>
-						<center>
-							Editar/Excluir
-						</center>
-					</th>
-				</tr>
-			</thead>
-			<%
-			try{
-				MedicoDao medicoDAO = new MedicoDao();
-				List<Medico> medicoData = medicoDAO.listMedicos();
-				for(Medico medico : medicoData){
-					if(medico.getStatus().contains("ativo")){
-			%>
-			<tbody>
-				<tr>
-					<td><span><%out.println(medico.getCrm());%></span></td>
-					<td><span><%out.println(medico.getNome());%></span></td>
-					<td><span><%out.println(medico.getEmail());%></span></td>
-					<td><span><%out.println(medico.getCargo());%></span></td>
-					<td><span><%out.println(medico.getEspecialidade());%></span></td>
-					<td><span><%out.println(medico.getJornada());%></span></td>
-					<td><span><%out.println(medico.getLogin());%></span></td>
-	
-					<td align="center">
-					<form method="post" action="../medico">
-						<input type="hidden" name="crm" value="<%out.print(medico.getCrm());%>">
-						<button type="submit" class="btn btn-warning btn-sm" name="acao" value="edit">
-							<span class="glyphicon glyphicon-pencil"></span>
-						</button>
-						<button type="submit" class="btn btn-danger btn-sm" name="acao" value="del">
-							<span class="glyphicon glyphicon-remove"></span>
-						</button>
-					</form>
-					</td>
-				</tr>
-			</tbody>
-			<%
+		<div class="row">
+		<%int cpfPaciente = Integer.parseInt(request.getParameter("cpfPaciente"));%>
+			<h3><center>Selecione o Médico para a consulta</center></h3>
+			<div class="col-sm-2"></div>
+			<div class="col-sm-8">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>CRM</th>
+							<th>Nome</th>
+							<th>Especialidade</th>
+							<th>Jornada</th>
+						</tr>
+					</thead>
+					<%
+					try{
+						MedicoDao medicoDAO = new MedicoDao();
+						List<Medico> medicoData = medicoDAO.listMedicos();
+						for(Medico medico : medicoData){
+							if(medico.getStatus().contains("ativo")){
+					%>
+					<tbody>
+						<tr>
+							<td><span><%out.println(medico.getCrm());%></span></td>
+							<td><span><%out.println(medico.getNome());%></span></td>
+							<td><span><%out.println(medico.getEspecialidade());%></span></td>
+							<td><span><%out.println(medico.getJornada());%></span></td>	
+							<td align="center">
+								<form method="post" action="consulta">
+									<input type="hidden" name="crmMedico" value="<%out.print(medico.getCrm());%>">
+									<input type="hidden" name="cpfPaciente" value="<%out.print(cpfPaciente);%>">
+									<button type="submit" class="btn btn-primary btn-sm" name="acao" value="selecionaMedico">
+										<span>Marcar Consulta</span>
+									</button>
+								</form>
+							</td>
+						</tr>
+					</tbody>
+					<%
+							}
+						}
+					}catch (Exception e) {
+						e.printStackTrace();
 					}
-				}
-			}catch (Exception e) {
-				e.printStackTrace();
-			}
-			%>
-		</table>
+					%>
+				</table>
+			</div>
+			<div class="col-sm-2"></div>
+		</div>
 	</div>
 </body>
 </html>

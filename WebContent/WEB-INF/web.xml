@@ -47,6 +47,14 @@
 		<url-pattern>/medico</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>consulta</servlet-name>
+		<servlet-class>com.projeto.servlet.ConsultaServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>consulta</servlet-name>
+		<url-pattern>/consulta</url-pattern>
+	</servlet-mapping>
 	
 	
 </web-app>
