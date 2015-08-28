@@ -27,7 +27,7 @@ public class ConsultaServlet extends HttpServlet{
 			int crmMedico = Integer.parseInt(req.getParameter("crmMedico"));
 			
 			RequestDispatcher envio = null;  
-			String urlRetorno = "/consulta/marcar-consulta.jsp?cpfPaciente="+cpfPaciente+"&";  
+			String urlRetorno = "/consulta/marcar-consulta.jsp?cpfPaciente="+cpfPaciente+"&crmMedico"+crmMedico+"";  
 			envio = req.getRequestDispatcher(urlRetorno);  
 			envio.forward(req, resp);
 		}

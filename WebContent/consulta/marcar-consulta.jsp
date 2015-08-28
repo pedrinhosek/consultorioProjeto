@@ -1,3 +1,5 @@
+<%@page import="com.projeto.objeto.Paciente"%>
+<%@page import="com.projeto.banco.PacienteDao"%>
 <%@page import="com.projeto.objeto.Medico"%>
 <%@page import="java.util.List"%>
 <%@page import="com.projeto.banco.MedicoDao"%>
@@ -55,21 +57,71 @@
 		<li><a href="../template.jsp">Inicio</a> <span class="divider"></span></li>
 		<li class="active">Lista de Funcionários</li>
 	</ul>
+	<%
+		int cpfPaciente = Integer.parseInt(request.getParameter("cpfPaciente"));
+		int crmMedico = Integer.parseInt(request.getParameter("crmMedico"));
+	%>
 		<div class="row">
 		<%//int cpfPaciente = Integer.parseInt(request.getParameter("cpfPaciente"));%>
-			<h3><center>Selecione o Médico para a consulta</center></h3>
-			<div class="col-sm-2"></div>
-			<div class="col-sm-8">
+			<h2><center>Dados finais para marcar a consulta</center></h2>
+			
+			<div class="col-sm-4">
 				<table class="table table-hover">
 					<thead>
 						<tr>
-							<th colspan="2">Dados do Médico</th>
+							<th colspan="2"><center>Dados do Paciente</center></th>
+						</tr>
+					</thead>
+					<%
+					try{
+						PacienteDao pacienteDAO = new PacienteDao();
+						List<Paciente> pacienteData = pacienteDAO.find(cpfPaciente);
+						for(Paciente paciente : pacienteData){
+							if(paciente.getStatus().contains("ativo")){
+					%>
+					<tbody>
+						<tr>
+							<td><span>Nome: </span></td>
+							<td><span><%out.println(paciente.getNome());%></span></td>
+						</tr>
+						<tr>
+							<td><span>E-mail: </span></td>	
+							<td><span><%out.println(paciente.getEmail());%></span></td>
+						</tr>
+						<tr>	
+							<td><span>Idade: </span></td>
+							<td><span><%out.println(paciente.getIdade());%></span></td>
+						</tr>
+						<tr>	
+							<td><span>Sexo: </span></td>
+							<td><span><%out.println(paciente.getSexo());%></span></td>
+						</tr>
+						<tr>
+							<td><span>UF: </span></td>
+							<td><span><%out.println(paciente.getEstado());%></span></td>
+						</tr>
+					</tbody>
+					<%
+							}
+						}
+					}catch (Exception e) {
+						e.printStackTrace();
+					}
+					%>
+				</table>
+			</div>
+			
+			<div class="col-sm-4">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th colspan="2"><center>Dados do Médico</center></th>
 						</tr>
 					</thead>
 					<%
 					try{
 						MedicoDao medicoDAO = new MedicoDao();
-						List<Medico> medicoData = medicoDAO.listMedicos();
+						List<Medico> medicoData = medicoDAO.find(crmMedico);
 						for(Medico medico : medicoData){
 							if(medico.getStatus().contains("ativo")){
 					%>
@@ -100,7 +152,43 @@
 					%>
 				</table>
 			</div>
-			<div class="col-sm-2"></div>
+			
+			<div class="col-sm-4">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th colspan="2"><center>Dados da Consulta</center></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><span>Hora: </span></td>
+							<td><input type="text"> </td>
+						</tr>
+						<tr>
+							<td><span>Data: </span></td>
+							<td><input type="text"> </td>
+						</tr>
+						<tr>
+							<td><span>Especialidade: </span></td>
+							<td><input type="text"> </td>
+						</tr>
+						<tr>
+							<td><span>Descrição: </span></td>
+							<td><input type="text"> </td>
+						</tr>
+						<tr>
+							<td></td>
+							<td>
+								<button type="submit" class="btn btn-success btn-lg" name="acao" value="marcarConsulta">
+									<span>Marcar Consulta</span>
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			
 		</div>
 	</div>
 </body>

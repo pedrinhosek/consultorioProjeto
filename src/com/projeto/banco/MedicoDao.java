@@ -11,6 +11,7 @@ import javax.naming.spi.DirStateFactory.Result;
 
 import com.projeto.conexao.Conexao;
 import com.projeto.objeto.Medico;
+import com.projeto.objeto.Paciente;
 
 public class MedicoDao {
 	
@@ -76,10 +77,35 @@ public class MedicoDao {
 		}
 	}
 	
-	
-	
-	
-	
+	public List<Medico> find(int crm) throws ClassNotFoundException {
+		try{
+			Connection connection = new Conexao().getConexao();
+			List<Medico> medicoData = new ArrayList<Medico>();
+			String sqlFind = "SELECT * FROM medico WHERE crm IN ("+crm+")";
+			PreparedStatement stmt = connection.prepareStatement(sqlFind);
+			ResultSet result = stmt.executeQuery();
+			while (result.next()){
+				//crm, nome, email, cargo, especialidade, jornada, tipoUsu, status, login, senha
+				Medico medico = new Medico();
+				medico.setCrm(result.getInt("crm"));
+				medico.setNome(result.getString("nome"));
+				medico.setEmail(result.getString("email"));
+				medico.setCargo(result.getString("cargo"));
+				medico.setEspecialidade(result.getString("especialidade"));
+				medico.setJornada(result.getString("jornada"));
+				medico.setTipoUsu(result.getString("tipoUsu"));
+				medico.setStatus(result.getString("status"));
+				medico.setLogin(result.getString("login"));
+				medico.setSenha(result.getString("senha"));
+				medicoData.add(medico);
+			}
+			result.close();
+			stmt.close();
+			return medicoData;
+		}catch (SQLException e){
+			throw new RuntimeException(e);
+		}
+	}
 	
 	
 	
