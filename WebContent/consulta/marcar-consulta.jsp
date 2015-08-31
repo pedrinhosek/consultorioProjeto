@@ -66,127 +66,161 @@
 			<h2><center>Dados finais para marcar a consulta</center></h2>
 			
 			<div class="col-sm-4">
-				<table class="table table-hover">
-					<thead>
-						<tr>
-							<th colspan="2"><center>Dados do Paciente</center></th>
-						</tr>
-					</thead>
-					<%
-					try{
-						PacienteDao pacienteDAO = new PacienteDao();
-						List<Paciente> pacienteData = pacienteDAO.find(cpfPaciente);
-						for(Paciente paciente : pacienteData){
-							if(paciente.getStatus().contains("ativo")){
-					%>
-					<tbody>
-						<tr>
-							<td><span>Nome: </span></td>
-							<td><span><%out.println(paciente.getNome());%></span></td>
-						</tr>
-						<tr>
-							<td><span>E-mail: </span></td>	
-							<td><span><%out.println(paciente.getEmail());%></span></td>
-						</tr>
-						<tr>	
-							<td><span>Idade: </span></td>
-							<td><span><%out.println(paciente.getIdade());%></span></td>
-						</tr>
-						<tr>	
-							<td><span>Sexo: </span></td>
-							<td><span><%out.println(paciente.getSexo());%></span></td>
-						</tr>
-						<tr>
-							<td><span>UF: </span></td>
-							<td><span><%out.println(paciente.getEstado());%></span></td>
-						</tr>
-					</tbody>
-					<%
+				<form method="post" action="consulta">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th colspan="2"><center>Dados do Paciente</center></th>
+							</tr>
+						</thead>
+						<%
+						try{
+							PacienteDao pacienteDAO = new PacienteDao();
+							List<Paciente> pacienteData = pacienteDAO.find(cpfPaciente);
+							for(Paciente paciente : pacienteData){
+								if(paciente.getStatus().contains("ativo")){
+						%>
+						<input type="hidden" name="nome" value="<%out.print();%>">
+						<tbody>
+							<tr>
+								<td><span>Nome: </span></td>
+								<td>
+									<input type="hidden" name="nome_paciente" value="<%out.print(paciente.getNome());%>">
+									<span><%out.println(paciente.getNome());%></span>
+								</td>
+							</tr>
+							<tr>
+								<td><span>E-mail: </span></td>	
+								<td>
+									<input type="hidden" name="email_paciente" value="<%out.print(paciente.getEmail());%>">
+									<span><%out.println(paciente.getEmail());%></span>
+								</td>
+							</tr>
+							<tr>	
+								<td><span>Idade: </span></td>
+								<td>
+									<input type="hidden" name="idade_paciente" value="<%out.print(paciente.getIdade());%>">
+									<span><%out.println(paciente.getIdade());%></span>
+								</td>
+							</tr>
+							<tr>	
+								<td><span>Sexo: </span></td>
+								<td>
+									<input type="hidden" name="sexo_paciente" value="<%out.print(paciente.getSexo());%>">
+									<span><%out.println(paciente.getSexo());%></span>
+								</td>
+							</tr>
+							<tr>
+								<td><span>UF: </span></td>
+								<td>
+									<input type="hidden" name="estado_paciente" value="<%out.print(paciente.getEstado());%>">
+									<span><%out.println(paciente.getEstado());%></span>
+								</td>
+							</tr>
+						</tbody>
+						<%
+								}
 							}
+						}catch (Exception e) {
+							e.printStackTrace();
 						}
-					}catch (Exception e) {
-						e.printStackTrace();
-					}
-					%>
-				</table>
-			</div>
-			
-			<div class="col-sm-4">
-				<table class="table table-hover">
-					<thead>
-						<tr>
-							<th colspan="2"><center>Dados do Médico</center></th>
-						</tr>
-					</thead>
-					<%
-					try{
-						MedicoDao medicoDAO = new MedicoDao();
-						List<Medico> medicoData = medicoDAO.find(crmMedico);
-						for(Medico medico : medicoData){
-							if(medico.getStatus().contains("ativo")){
-					%>
-					<tbody>
-						<tr>
-							<td><span>CRM: </span></td>
-							<td><span><%out.println(medico.getCrm());%></span></td>
-						</tr>
-						<td>
-							<span>Nome: </span></td>
-							<td><span><%out.println(medico.getNome());%></span></td>
-						</tr>
-						<tr>
-							<td><span>Especialidade: </span></td>
-							<td><span><%out.println(medico.getEspecialidade());%></span></td>
-						</tr>
-						<tr>
-							<td><span>Jornada: </span></td>
-							<td><span><%out.println(medico.getJornada());%></span></td>	
-						</tr>
-					</tbody>
-					<%
-							}
-						}
-					}catch (Exception e) {
-						e.printStackTrace();
-					}
-					%>
-				</table>
-			</div>
-			
-			<div class="col-sm-4">
-				<table class="table table-hover">
-					<thead>
-						<tr>
-							<th colspan="2"><center>Dados da Consulta</center></th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td><span>Hora: </span></td>
-							<td><input type="text"> </td>
-						</tr>
-						<tr>
-							<td><span>Data: </span></td>
-							<td><input type="text"> </td>
-						</tr>
-						<tr>
-							<td><span>Especialidade: </span></td>
-							<td><input type="text"> </td>
-						</tr>
-						<tr>
-							<td><span>Descrição: </span></td>
-							<td><input type="text"> </td>
-						</tr>
-						<tr>
-							<td></td>
+						%>
+					</table>
+				</div>
+				
+				<div class="col-sm-4">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th colspan="2"><center>Dados do Médico</center></th>
+							</tr>
+						</thead>
+						<%
+						try{
+							MedicoDao medicoDAO = new MedicoDao();
+							List<Medico> medicoData = medicoDAO.find(crmMedico);
+							for(Medico medico : medicoData){
+								if(medico.getStatus().contains("ativo")){
+						%>
+						<tbody>
+							<tr>
+								<td><span>CRM: </span></td>
+								<td>
+									<input type="hidden" name="crm_medico" value="<%out.print(medico.getCrm());%>">
+									<span><%out.println(medico.getCrm());%></span>
+								</td>
+							</tr>
 							<td>
-								<button type="submit" class="btn btn-success btn-lg" name="acao" value="marcarConsulta">
-									<span>Marcar Consulta</span>
-								</button>
-							</td>
-						</tr>
-					</tbody>
-				</table>
+								<span>Nome: </span></td>
+								<td>
+									<input type="hidden" name="nome_medico" value="<%out.print(medico.getNome());%>">
+									<span><%out.println(medico.getNome());%></span>
+								</td>
+							</tr>
+							<tr>
+								<td><span>Especialidade: </span></td>
+								<td>
+									<input type="hidden" name="especialidade_medico" value="<%out.print(medico.getEspecialidade());%>">
+									<span><%out.println(medico.getEspecialidade());%></span>
+								</td>
+							</tr>
+							<tr>
+								<td><span>Jornada: </span></td>
+								<td>
+									<input type="hidden" name="jornada_medico" value="<%out.print(medico.getJornada());%>">
+									<span><%out.println(medico.getJornada());%></span>
+								</td>	
+							</tr>
+						</tbody>
+						<%
+								}
+							}
+						}catch (Exception e) {
+							e.printStackTrace();
+						}
+						%>
+					</table>
+				</div>
+				
+				<div class="col-sm-4">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th colspan="2"><center>Dados da Consulta</center></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><span>Matricula: </span></td>
+								<td><input type="text" name="cod_consulta"> </td>
+							</tr>
+							<tr>
+								<td><span>Hora: </span></td>
+								<td><input type="text" name="hora_consulta"> </td>
+							</tr>
+							<tr>
+								<td><span>Data: </span></td>
+								<td><input type="text" name="data_consulta"> </td>
+							</tr>
+							<tr>
+								<td><span>Especialidade: </span></td>
+								<td><input type="text" name="especialidade_consulta"> </td>
+							</tr>
+							<tr>
+								<td><span>Descrição: </span></td>
+								<td><input type="text" name="descricao_consulta"> </td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>
+									<button type="submit" class="btn btn-success btn-lg" name="acao" value="marcarConsulta">
+										<span>Marcar Consulta</span>
+									</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</form>
 			</div>
 			
 		</div>

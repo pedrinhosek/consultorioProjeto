@@ -1,20 +1,21 @@
 package com.projeto.objeto;
 
 public class Consulta {
-	
+
 	int cod_consulta;
-	String data_consulta;
 	String hora_consulta;
-	String convenio;
-	int cpf_paciente;
+	String data_consulta;
+	String especialidade_consulta;
+	String descricao_consulta;
 	String nome_paciente;
 	String email_paciente;
 	String idade_paciente;
 	String sexo_paciente;
-	int crm_medico;
+	String estado_paciente;
+	String crm_medico;
 	String nome_medico;
-	String email_medico;
-	String especialidade;
+	String especialidade_medico;
+	String jornada_medico;
 	
 	public int getCod_consulta() {
 		return cod_consulta;
@@ -22,29 +23,29 @@ public class Consulta {
 	public void setCod_consulta(int cod_consulta) {
 		this.cod_consulta = cod_consulta;
 	}
-	public String getData_consulta() {
-		return data_consulta;
-	}
-	public void setData_consulta(String data_consulta) {
-		this.data_consulta = data_consulta;
-	}
 	public String getHora_consulta() {
 		return hora_consulta;
 	}
 	public void setHora_consulta(String hora_consulta) {
 		this.hora_consulta = hora_consulta;
 	}
-	public String getConvenio() {
-		return convenio;
+	public String getData_consulta() {
+		return data_consulta;
 	}
-	public void setConvenio(String convenio) {
-		this.convenio = convenio;
+	public void setData_consulta(String data_consulta) {
+		this.data_consulta = data_consulta;
 	}
-	public int getCpf_paciente() {
-		return cpf_paciente;
+	public String getEspecialidade_consulta() {
+		return especialidade_consulta;
 	}
-	public void setCpf_paciente(int cpf_paciente) {
-		this.cpf_paciente = cpf_paciente;
+	public void setEspecialidade_consulta(String especialidade_consulta) {
+		this.especialidade_consulta = especialidade_consulta;
+	}
+	public String getDescricao_consulta() {
+		return descricao_consulta;
+	}
+	public void setDescricao_consulta(String descricao_consulta) {
+		this.descricao_consulta = descricao_consulta;
 	}
 	public String getNome_paciente() {
 		return nome_paciente;
@@ -70,10 +71,16 @@ public class Consulta {
 	public void setSexo_paciente(String sexo_paciente) {
 		this.sexo_paciente = sexo_paciente;
 	}
-	public int getCrm_medico() {
+	public String getEstado_paciente() {
+		return estado_paciente;
+	}
+	public void setEstado_paciente(String estado_paciente) {
+		this.estado_paciente = estado_paciente;
+	}
+	public String getCrm_medico() {
 		return crm_medico;
 	}
-	public void setCrm_medico(int crm_medico) {
+	public void setCrm_medico(String crm_medico) {
 		this.crm_medico = crm_medico;
 	}
 	public String getNome_medico() {
@@ -82,21 +89,19 @@ public class Consulta {
 	public void setNome_medico(String nome_medico) {
 		this.nome_medico = nome_medico;
 	}
-	public String getEmail_medico() {
-		return email_medico;
+	public String getEspecialidade_medico() {
+		return especialidade_medico;
 	}
-	public void setEmail_medico(String email_medico) {
-		this.email_medico = email_medico;
+	public void setEspecialidade_medico(String especialidade_medico) {
+		this.especialidade_medico = especialidade_medico;
 	}
-	public String getEspecialidade() {
-		return especialidade;
+	public String getJornada_medico() {
+		return jornada_medico;
 	}
-	public void setEspecialidade(String especialidade) {
-		this.especialidade = especialidade;
+	public void setJornada_medico(String jornada_medico) {
+		this.jornada_medico = jornada_medico;
 	}
 
-	
-	
 	
 	
 	
