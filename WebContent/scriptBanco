@@ -1,0 +1,64 @@
+CREATE TABLE login (
+	login int PRIMARY KEY,
+	senha VARCHAR(25) NOT NULL,
+	tipoUsu VARCHAR(20) NOT NULL,
+);
+
+
+CREATE TABLE paciente (
+	cpf int PRIMARY KEY,
+	idade int NOT NULL,
+	nome VARCHAR(100) NOT NULL,
+	email VARCHAR(100) NOT NULL,
+	estado VARCHAR(50) NOT NULL,
+	sexo VARCHAR(15) NOT NULL,
+	tipoUsu VARCHAR(20) NOT NULL,
+	usuario VARCHAR(50) NOT NULL,
+	senha VARCHAR(20) NOT NULL,
+	status VARCHAR(10) NOT NULL
+);
+
+CREATE TABLE funcionario (
+	cpf int PRIMARY KEY,
+	nome VARCHAR(100) NOT NULL,
+	email VARCHAR(100) NOT NULL,
+	cargo VARCHAR(100) NOT NULL,
+	tipoUsuario VARCHAR(100) NOT NULL,
+	login VARCHAR(100) NOT NULL,
+	senha VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE medico (
+	crm int PRIMARY KEY,
+	nome VARCHAR(100) NOT NULL,
+	email VARCHAR(100) NOT NULL,
+	cargo VARCHAR(100) NOT NULL,
+	especialidade VARCHAR(100) NOT NULL,
+	jornada VARCHAR(100) NOT NULL,
+	tipoUsu VARCHAR(100) NOT NULL,
+	status VARCHAR(100) NOT NULL,
+	login VARCHAR(100) NOT NULL,
+	senha VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE convenio (
+	matricula int PRIMARY KEY,
+	nome_convenio VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE consulta (
+	cod_consulta
+	hora_consulta VARCHAR(100) NOT NULL,
+	data_consulta VARCHAR(100) NOT NULL,
+	especialidade_consulta VARCHAR(100) NOT NULL,
+	descricao_consulta VARCHAR(100) NOT NULL,
+	nome_paciente VARCHAR(100) NOT NULL,
+	email_paciente VARCHAR(100) NOT NULL,
+	idade_paciente VARCHAR(100) NOT NULL,
+	sexo_paciente VARCHAR(100) NOT NULL,
+	estado_paciente VARCHAR(100) NOT NULL,
+	crm_medico VARCHAR(100) NOT NULL,
+	nome_medico VARCHAR(100) NOT NULL,
+	especialidade_medico VARCHAR(100) NOT NULL,
+	jornada_medico VARCHAR(100) NOT NULL
+);

@@ -70,8 +70,21 @@ public class ConsultaServlet extends HttpServlet{
 			consulta.setEspecialidade_medico(especialidade_medico);
 			consulta.setJornada_medico(jornada_medico);
 		
-		
-		
+			System.out.println(cod_consulta);
+			System.out.println(hora_consulta);
+			System.out.println(data_consulta);
+			System.out.println(especialidade_consulta);
+			System.out.println(descricao_consulta);
+			System.out.println(nome_medico);
+			System.out.println(idade_paciente);
+			System.out.println(sexo_paciente);
+			System.out.println(estado_paciente);
+			System.out.println(crm_medico);
+			System.out.println(nome_medico);
+			System.out.println(especialidade_medico);
+			System.out.println(jornada_medico);
+			
+			
 		
 		
 		

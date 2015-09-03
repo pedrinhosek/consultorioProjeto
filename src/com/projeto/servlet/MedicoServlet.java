@@ -60,6 +60,10 @@ public class MedicoServlet extends HttpServlet{
 			}			
 		}
 		
+		if(acao.equals("edit")){
+			int crm = Integer.parseInt(req.getParameter("crm"));
+			
+		}
 		
 		
 		

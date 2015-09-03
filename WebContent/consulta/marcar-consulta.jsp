@@ -80,7 +80,6 @@
 							for(Paciente paciente : pacienteData){
 								if(paciente.getStatus().contains("ativo")){
 						%>
-						<input type="hidden" name="nome" value="<%out.print();%>">
 						<tbody>
 							<tr>
 								<td><span>Nome: </span></td>
@@ -172,13 +171,6 @@
 								</td>	
 							</tr>
 						</tbody>
-						<%
-								}
-							}
-						}catch (Exception e) {
-							e.printStackTrace();
-						}
-						%>
 					</table>
 				</div>
 				
@@ -204,13 +196,20 @@
 							</tr>
 							<tr>
 								<td><span>Especialidade: </span></td>
-								<td><input type="text" name="especialidade_consulta"> </td>
+								<td><input type="text" name="especialidade_consulta" value="<%out.println(medico.getEspecialidade());%>" disabled="disabled"></td>
 							</tr>
 							<tr>
 								<td><span>Descrição: </span></td>
 								<td><input type="text" name="descricao_consulta"> </td>
 							</tr>
 							<tr>
+						<%
+								}
+							}
+						}catch (Exception e) {
+							e.printStackTrace();
+						}
+						%>
 								<td></td>
 								<td>
 									<button type="submit" class="btn btn-success btn-lg" name="acao" value="marcarConsulta">

@@ -25,11 +25,11 @@
 					<li class="active"><a href="#">Home</a></li>
 					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Consulta <span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="#">Marcar Consulta</a></li>
+							<li><a href="/projetoPI/consulta/marcar-paciente.jsp">Marcar Consulta</a></li>
 						</ul>
 					</li>
 					<li><a href="#">Exibir Agenda</a></li>					
-					<li><a href="#">Médico</a></li>
+					<li><a href="/projetoPI/medico/listar-medico.jsp">Médico</a></li>
 					<li><a href="/projetoPI/paciente/listar-paciente.jsp">Paciente</a></li>
 					<li><a href="/projetoPI/funcionario/listar-funcionario.jsp">Funcionário</a></li>
 					<li><a href="/projetoPI/convenio/lista-convenio.jsp">Convênio</a></li>
@@ -39,7 +39,7 @@
 						<ul class="dropdown-menu">
 							<li><a href="/projetoPI/funcionario/cadastro-funcionario.jsp">Funcionário</a></li>
 							<li><a href="#">Médico</a></li>
-							<li><a href="#">Paciente</a></li>
+							<li><a href="">Paciente</a></li>
 							<li><a href="/projetoPI/convenio/cadastro-convenio.jsp">Convênio</a></li>
 						</ul>
 					 </li>
