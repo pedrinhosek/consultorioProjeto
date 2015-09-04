@@ -68,11 +68,41 @@
 					<input type="text" class="form-control" name="cargo" required />
 					<label for="usr">Especialidade:</label>
 					<input type="text" class="form-control" name="especialidade" required />
-					<label for="usr">Jornada de Trabalho:</label>
-					<select class="form-control" name="jornada" required >
-						<option>07:00h as 13:00h</option>
-						<option>12:00h as 18:00h</option>
-					</select>	
+					
+					<table>
+					<tbody>
+						<tr>
+							<td class="col-sm-2"><label for="usr">Hora de entrada:</label></td>
+							<td class="col-sm-4">
+								<select class="form-control" name="entrada" required >
+									<option value="10">10 horas</option>
+									<option value="11">11 horas</option>
+									<option value="12">12 horas</option>
+									<option value="13">13 horas</option>
+									<option value="14">14 horas</option>
+								</select>	
+							</td>
+							<td class="col-sm-2"><label for="usr">Hora de saida:</label></td>
+							<td class="col-sm-4">
+								<select class="form-control" name="saida" required >
+									<option value="14">14 horas</option>
+									<option value="15">15 horas</option>
+									<option value="16">16 horas</option>
+									<option value="17">17 horas</option>
+									<option value="18">18 horas</option>
+									<option value="19">19 horas</option>
+								</select>
+							</td>
+						</tr>
+					</tbody>
+					</table>
+					
+					
+					
+
+					
+					
+					
 					<input type="hidden" name="tipoUsu" value="funcionario">
 					<input type="hidden" name="status" value="ativo">				
 					<br />

@@ -166,8 +166,7 @@
 							<tr>
 								<td><span>Jornada: </span></td>
 								<td>
-									<input type="hidden" name="jornada_medico" value="<%out.print(medico.getJornada());%>">
-									<span><%out.println(medico.getJornada());%></span>
+									<span><%out.println(medico.getEntrada()+":00 horas as ");%><%out.println(medico.getSaida()+":00 horas");%></span>
 								</td>	
 							</tr>
 						</tbody>
@@ -188,7 +187,18 @@
 							</tr>
 							<tr>
 								<td><span>Hora: </span></td>
-								<td><input type="text" name="hora_consulta"> </td>
+								<td>
+									<select name="hora_consulta">							
+									<%
+									int horaEntrada = Integer.parseInt(medico.getEntrada());
+									int horaSaida = Integer.parseInt(medico.getSaida());
+									for(int i=horaEntrada; i<horaSaida; i++){
+									%>
+										<option value="<%out.print(i);%>"><%out.print(i);%></option>
+									<%}%>
+									</select> :
+									<span>00 h</span>
+								</td>
 							</tr>
 							<tr>
 								<td><span>Data: </span></td>
@@ -196,7 +206,17 @@
 							</tr>
 							<tr>
 								<td><span>Especialidade: </span></td>
-								<td><input type="text" name="especialidade_consulta" value="<%out.println(medico.getEspecialidade());%>" disabled="disabled"></td>
+								<td>
+									<input type="text" value="<%out.print(medico.getEspecialidade());%>" disabled="disabled">
+									<input type="hidden" name="especialidade_consulta" value="<%out.print(medico.getEspecialidade());%>">	
+								</td>
+							</tr>
+							<tr>
+								<td><span>Status: </span></td>
+								<td>
+									<input type="text" value="Agendada" disabled="disabled">
+									<input type="hidden" name="status_consulta" value="Agendada">	
+								</td>	
 							</tr>
 							<tr>
 								<td><span>Descrição: </span></td>

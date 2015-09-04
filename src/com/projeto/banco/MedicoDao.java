@@ -17,7 +17,7 @@ public class MedicoDao {
 	
 	public boolean insert(Medico medico) throws ClassNotFoundException, SQLException {
 		Connection connection = new Conexao().getConexao();
-		String sqlInsert = "INSERT INTO medico(crm, nome, email, cargo, especialidade, jornada, tipoUsu, status, login, senha) VALUES (?,?,?,?,?,?,?,?,?,?)";
+		String sqlInsert = "INSERT INTO medico(crm, nome, email, cargo, especialidade, entrada, saida, tipoUsu, status, login, senha) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 		PreparedStatement stmt = connection.prepareStatement(sqlInsert);
 		try{
 			stmt.setInt(1, medico.getCrm());
@@ -25,11 +25,12 @@ public class MedicoDao {
 			stmt.setString(3, medico.getEmail());
 			stmt.setString(4, medico.getCargo());
 			stmt.setString(5, medico.getEspecialidade());
-			stmt.setString(6, medico.getJornada());
-			stmt.setString(7, medico.getTipoUsu());
-			stmt.setString(8, medico.getStatus());
-			stmt.setString(9, medico.getLogin());
-			stmt.setString(10, medico.getSenha());
+			stmt.setString(6, medico.getEntrada());
+			stmt.setString(7, medico.getSaida());
+			stmt.setString(8, medico.getTipoUsu());
+			stmt.setString(9, medico.getStatus());
+			stmt.setString(10, medico.getLogin());
+			stmt.setString(11, medico.getSenha());
 			return stmt.execute();
 		}catch (Exception e) {
 			return false;
@@ -50,7 +51,8 @@ public class MedicoDao {
 				medico.setEmail(result.getString("email"));
 				medico.setCargo(result.getString("cargo"));
 				medico.setEspecialidade(result.getString("especialidade"));
-				medico.setJornada(result.getString("jornada"));
+				medico.setEntrada(result.getString("entrada"));
+				medico.setSaida(result.getString("saida"));
 				medico.setTipoUsu(result.getString("tipoUsu"));
 				medico.setStatus(result.getString("status"));
 				medico.setLogin(result.getString("login"));
@@ -92,7 +94,8 @@ public class MedicoDao {
 				medico.setEmail(result.getString("email"));
 				medico.setCargo(result.getString("cargo"));
 				medico.setEspecialidade(result.getString("especialidade"));
-				medico.setJornada(result.getString("jornada"));
+				medico.setEntrada(result.getString("entrada"));
+				medico.setSaida(result.getString("saida"));
 				medico.setTipoUsu(result.getString("tipoUsu"));
 				medico.setStatus(result.getString("status"));
 				medico.setLogin(result.getString("login"));

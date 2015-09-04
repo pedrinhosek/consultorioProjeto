@@ -80,7 +80,7 @@
 							<td><span><%out.println(medico.getCrm());%></span></td>
 							<td><span><%out.println(medico.getNome());%></span></td>
 							<td><span><%out.println(medico.getEspecialidade());%></span></td>
-							<td><span><%out.println(medico.getJornada());%></span></td>	
+							<td><span><%out.println(medico.getEntrada()+":00 horas as ");%><%out.println(medico.getSaida()+":00 horas");%></span></td>	
 							<td align="center">
 								<form method="post" action="../medico">
 									<input type="hidden" name="crm" value="<%out.print(medico.getCrm());%>">

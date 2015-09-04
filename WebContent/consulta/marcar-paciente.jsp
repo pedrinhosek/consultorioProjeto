@@ -88,7 +88,7 @@
 											<form method="post" action="../consulta">
 												<input type="hidden" name="cpfPaciente" value="<%out.print(paciente.getCpf());%>">
 												<button type="submit" class="btn btn-primary btn-sm" name="acao" value="selecionaPaciente">
-													<span>Marcar Consulta</span>
+													<span>Selecionar paciente</span>
 												</button>
 											</form>
 										</td>

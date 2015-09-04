@@ -27,7 +27,8 @@ public class MedicoServlet extends HttpServlet{
 			String email = req.getParameter("email");
 			String cargo = req.getParameter("cargo");
 			String especialidade = req.getParameter("especialidade");
-			String jornada = req.getParameter("jornada");
+			String entrada = req.getParameter("entrada");
+			String saida = req.getParameter("saida");
 			String tipoUsu = req.getParameter("tipoUsu");
 			String status = req.getParameter("status");
 			String login = req.getParameter("usuario");
@@ -38,7 +39,8 @@ public class MedicoServlet extends HttpServlet{
 			medico.setEmail(email);
 			medico.setCargo(cargo);
 			medico.setEspecialidade(especialidade);
-			medico.setJornada(jornada);
+			medico.setEntrada(entrada);
+			medico.setSaida(saida);
 			medico.setTipoUsu(tipoUsu);
 			medico.setStatus(status);
 			medico.setLogin(login);

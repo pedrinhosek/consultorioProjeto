@@ -7,23 +7,30 @@ public class Medico {
 	String email;
 	String Cargo;
 	String Especialidade;
-	String Jornada;
 	String TipoUsu;
 	String Login;
 	String Senha;
 	String status;
+	String entrada;
+	String saida;	
 	
+	public String getEntrada() {
+		return entrada;
+	}
+	public void setEntrada(String entrada) {
+		this.entrada = entrada;
+	}
+	public String getSaida() {
+		return saida;
+	}
+	public void setSaida(String saida) {
+		this.saida = saida;
+	}
 	public String getStatus() {
 		return status;
 	}
 	public void setStatus(String status) {
 		this.status = status;
-	}
-	public String getJornada() {
-		return Jornada;
-	}
-	public void setJornada(String jornada) {
-		Jornada = jornada;
 	}
 	public int getCrm() {
 		return crm;

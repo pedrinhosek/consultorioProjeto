@@ -3,6 +3,7 @@ package com.projeto.objeto;
 public class Consulta {
 
 	int cod_consulta;
+	String status_consulta;
 	String hora_consulta;
 	String data_consulta;
 	String especialidade_consulta;
@@ -17,6 +18,12 @@ public class Consulta {
 	String especialidade_medico;
 	String jornada_medico;
 	
+	public String getStatus_consulta() {
+		return status_consulta;
+	}
+	public void setStatus_consulta(String status_consulta) {
+		this.status_consulta = status_consulta;
+	}
 	public int getCod_consulta() {
 		return cod_consulta;
 	}

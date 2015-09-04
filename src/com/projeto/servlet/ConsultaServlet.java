@@ -52,6 +52,7 @@ public class ConsultaServlet extends HttpServlet{
 			String crm_medico = req.getParameter("crm_medico");
 			String nome_medico = req.getParameter("nome_medico");
 			String especialidade_medico = req.getParameter("especialidade_medico");
+			String status_consulta = req.getParameter("status_consulta");
 			String jornada_medico = req.getParameter("jornada_medico");
 		
 			
@@ -68,6 +69,7 @@ public class ConsultaServlet extends HttpServlet{
 			consulta.setCrm_medico(crm_medico);
 			consulta.setNome_medico(nome_medico);
 			consulta.setEspecialidade_medico(especialidade_medico);
+			consulta.setStatus_consulta(status_consulta);
 			consulta.setJornada_medico(jornada_medico);
 		
 			System.out.println(cod_consulta);
@@ -82,6 +84,7 @@ public class ConsultaServlet extends HttpServlet{
 			System.out.println(crm_medico);
 			System.out.println(nome_medico);
 			System.out.println(especialidade_medico);
+			System.out.println(status_consulta);
 			System.out.println(jornada_medico);
 			
 			
