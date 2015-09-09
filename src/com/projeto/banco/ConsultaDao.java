@@ -2,7 +2,10 @@ package com.projeto.banco;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.projeto.conexao.Conexao;
 import com.projeto.objeto.Consulta;
@@ -41,8 +44,38 @@ public class ConsultaDao {
 		}
 	}
 	
-	
-	
+	public List<Consulta> List() throws ClassNotFoundException{
+		try{
+			Connection connection = new Conexao().getConexao();
+			List<Consulta> consultaData = new ArrayList<Consulta>();
+			String SqlList = "SELECT * FROM consulta ORDER BY data_consulta ASC";
+			PreparedStatement stmt = connection.prepareStatement(SqlList);
+			ResultSet result = stmt.executeQuery();
+			while(result.next()){
+				Consulta consulta = new Consulta();
+				consulta.setCod_consulta(result.getInt("cod_consulta"));
+				consulta.setStatus_consulta(result.getString("status_consulta"));
+				consulta.setHora_consulta(result.getString("hora_consulta"));
+				consulta.setData_consulta(result.getString("data_consulta"));
+				consulta.setEspecialidade_consulta(result.getString("especialidade_consulta"));
+				consulta.setDescricao_consulta(result.getString("descricao_consulta"));
+				consulta.setNome_paciente(result.getString("nome_paciente"));
+				consulta.setEmail_paciente(result.getString("email_paciente"));
+				consulta.setIdade_paciente(result.getString("idade_paciente"));
+				consulta.setSexo_paciente(result.getString("sexo_paciente"));
+				consulta.setEstado_paciente(result.getString("estado_paciente"));
+				consulta.setCrm_medico(result.getString("crm_medico"));
+				consulta.setNome_medico(result.getString("nome_medico"));
+				consulta.setEspecialidade_medico(result.getString("especialidade_medico"));
+				consultaData.add(consulta);
+			}
+			result.close();
+			stmt.close();
+			return consultaData;
+		} catch (SQLException e){
+			throw new RuntimeException(e);
+		}
+	}
 	
 	
 	

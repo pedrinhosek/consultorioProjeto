@@ -76,22 +76,12 @@ public class ConsultaServlet extends HttpServlet{
 			consulta.setEspecialidade_medico(especialidade_medico);
 			consulta.setStatus_consulta(status_consulta);
 			consulta.setJornada_medico(jornada_medico);
-		
-			
+
 			try {
 				consultaCtrl.validarCadastroConsulta(consulta);
 			} catch (ClassNotFoundException | SQLException e) {
 				e.printStackTrace();
 			}
-			
-		
-		
-		
-		
-		
-		
-		
-		
 		}
 		
 		
