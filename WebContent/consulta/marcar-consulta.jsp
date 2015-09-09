@@ -202,7 +202,23 @@
 							</tr>
 							<tr>
 								<td><span>Data: </span></td>
-								<td><input type="text" name="data_consulta"> </td>
+								<td>
+									<select name="data_dia">
+									<%for(int i=1;i<=31;i++){%>
+										<option value="<%out.print(i);%>"><%out.print(i);%></option>
+									<%}%>
+									</select> /
+									<select name="data_mes">
+									<%for(int i=1;i<=12;i++){%>
+										<option value="<%out.print(i);%>"><%out.print(i);%></option>
+									<%}%>
+									</select> /
+									<select name="data_ano">
+										<option value="2015">2015</option>
+										<option value="2016">2016</option>
+									
+									</select>
+								</td>
 							</tr>
 							<tr>
 								<td><span>Especialidade: </span></td>

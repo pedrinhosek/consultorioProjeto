@@ -1,6 +1,7 @@
 package com.projeto.servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,12 +9,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.projeto.ctrl.Ctrl_Consulta;
 import com.projeto.objeto.Consulta;
 
 public class ConsultaServlet extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		Ctrl_Consulta consultaCtrl = new Ctrl_Consulta();
 		Consulta consulta = new Consulta();
 		String acao = req.getParameter("acao");
 		
@@ -39,7 +42,10 @@ public class ConsultaServlet extends HttpServlet{
 		if(acao.equals("marcarConsulta")){
 			int cod_consulta = Integer.parseInt(req.getParameter("cod_consulta"));
 			String hora_consulta = req.getParameter("hora_consulta");
-			String data_consulta = req.getParameter("data_consulta");
+			String data_dia = req.getParameter("data_dia");
+			String data_mes = req.getParameter("data_mes");
+			String data_ano = req.getParameter("data_ano");
+			String data_consulta = data_dia+"/"+data_mes+"/"+data_ano;
 			String especialidade_consulta = req.getParameter("especialidade_consulta");
 			String descricao_consulta = req.getParameter("descricao_consulta");
 			
@@ -55,7 +61,6 @@ public class ConsultaServlet extends HttpServlet{
 			String status_consulta = req.getParameter("status_consulta");
 			String jornada_medico = req.getParameter("jornada_medico");
 		
-			
 			consulta.setCod_consulta(cod_consulta);
 			consulta.setHora_consulta(hora_consulta);
 			consulta.setData_consulta(data_consulta);
@@ -72,21 +77,12 @@ public class ConsultaServlet extends HttpServlet{
 			consulta.setStatus_consulta(status_consulta);
 			consulta.setJornada_medico(jornada_medico);
 		
-			System.out.println(cod_consulta);
-			System.out.println(hora_consulta);
-			System.out.println(data_consulta);
-			System.out.println(especialidade_consulta);
-			System.out.println(descricao_consulta);
-			System.out.println(nome_medico);
-			System.out.println(idade_paciente);
-			System.out.println(sexo_paciente);
-			System.out.println(estado_paciente);
-			System.out.println(crm_medico);
-			System.out.println(nome_medico);
-			System.out.println(especialidade_medico);
-			System.out.println(status_consulta);
-			System.out.println(jornada_medico);
 			
+			try {
+				consultaCtrl.validarCadastroConsulta(consulta);
+			} catch (ClassNotFoundException | SQLException e) {
+				e.printStackTrace();
+			}
 			
 		
 		
