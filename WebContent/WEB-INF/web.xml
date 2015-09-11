@@ -56,5 +56,14 @@
 		<url-pattern>/consulta</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>teste</servlet-name>
+		<servlet-class>com.projeto.servlet.TesteServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>teste</servlet-name>
+		<url-pattern>/teste</url-pattern>
+	</servlet-mapping>
+	
 	
 </web-app>
