@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.projeto.banco.ConsultaDao;
 import com.projeto.ctrl.Ctrl_Consulta;
 import com.projeto.objeto.Consulta;
 
@@ -18,6 +19,7 @@ public class ConsultaServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Ctrl_Consulta consultaCtrl = new Ctrl_Consulta();
 		Consulta consulta = new Consulta();
+		ConsultaDao consultaBanco = new ConsultaDao();
 		String acao = req.getParameter("acao");
 		
 		if(acao.equals("selecionaPaciente")){
@@ -80,6 +82,26 @@ public class ConsultaServlet extends HttpServlet{
 			try {
 				consultaCtrl.validarCadastroConsulta(consulta);
 			} catch (ClassNotFoundException | SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		if(acao.equals("efetuada")){
+			int codConsulta = Integer.parseInt(req.getParameter("cod_consulta"));
+			String status = "Efetuada";
+			try {
+				consultaBanco.updateDelete(codConsulta, status);
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		if(acao.equals("desmarcar")){
+			int codConsulta = Integer.parseInt(req.getParameter("cod_consulta"));
+			String status = "Desmarcada";
+			try {
+				consultaBanco.updateDelete(codConsulta, status);
+			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
 		}

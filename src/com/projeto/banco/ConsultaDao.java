@@ -77,8 +77,18 @@ public class ConsultaDao {
 		}
 	}
 	
-	
-	
+	public boolean updateDelete(int codConsulta, String status) throws ClassNotFoundException {
+		String sqlUpdateDelete = "UPDATE consulta SET status_consulta=? WHERE cod_consulta=?;";
+		try{
+			Connection connection = new Conexao().getConexao();
+			PreparedStatement stmt = connection.prepareStatement(sqlUpdateDelete);
+			stmt.setString(1, status);
+			stmt.setInt(2, codConsulta);
+			return stmt.execute();
+		}catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 	
 	
 	
