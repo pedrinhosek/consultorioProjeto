@@ -1,5 +1,7 @@
 package com.projeto.objeto;
 
+import java.util.Date;
+
 public class Consulta {
 
 	int cod_consulta;
@@ -18,6 +20,12 @@ public class Consulta {
 	String especialidade_medico;
 	String jornada_medico;
 	
+	public String getData_consulta() {
+		return data_consulta;
+	}
+	public void setData_consulta(String data_consulta) {
+		this.data_consulta = data_consulta;
+	}
 	public String getStatus_consulta() {
 		return status_consulta;
 	}
@@ -35,12 +43,6 @@ public class Consulta {
 	}
 	public void setHora_consulta(String hora_consulta) {
 		this.hora_consulta = hora_consulta;
-	}
-	public String getData_consulta() {
-		return data_consulta;
-	}
-	public void setData_consulta(String data_consulta) {
-		this.data_consulta = data_consulta;
 	}
 	public String getEspecialidade_consulta() {
 		return especialidade_consulta;

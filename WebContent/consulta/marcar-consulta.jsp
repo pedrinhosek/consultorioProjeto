@@ -1,3 +1,5 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
 <%@page import="com.projeto.objeto.Paciente"%>
 <%@page import="com.projeto.banco.PacienteDao"%>
 <%@page import="com.projeto.objeto.Medico"%>
@@ -201,22 +203,12 @@
 							</tr>
 							<tr>
 								<td><span>Data: </span></td>
+								<%
+									Date data = new Date();
+									SimpleDateFormat formatador = new SimpleDateFormat("yyyy-MM-dd");
+								%>
 								<td>
-									<select name="data_dia">
-									<%for(int i=1;i<=31;i++){%>
-										<option value="<%out.print(i);%>"><%out.print(i);%></option>
-									<%}%>
-									</select> /
-									<select name="data_mes">
-									<%for(int i=1;i<=12;i++){%>
-										<option value="<%out.print(i);%>"><%out.print(i);%></option>
-									<%}%>
-									</select> /
-									<select name="data_ano">
-										<option value="2015">2015</option>
-										<option value="2016">2016</option>
-									
-									</select>
+									<input type="date" name="data" min="<%out.print(formatador.format(data));%>" value="<%out.print(formatador.format(data));%>" />
 								</td>
 							</tr>
 							<tr>

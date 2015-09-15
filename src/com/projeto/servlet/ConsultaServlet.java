@@ -2,6 +2,9 @@ package com.projeto.servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -44,10 +47,7 @@ public class ConsultaServlet extends HttpServlet{
 		if(acao.equals("marcarConsulta")){
 			int cod_consulta = Integer.parseInt(req.getParameter("cod_consulta"));
 			String hora_consulta = req.getParameter("hora_consulta");
-			String data_dia = req.getParameter("data_dia");
-			String data_mes = req.getParameter("data_mes");
-			String data_ano = req.getParameter("data_ano");
-			String data_consulta = data_dia+"/"+data_mes+"/"+data_ano;
+			String data_consulta = req.getParameter("data");
 			String especialidade_consulta = req.getParameter("especialidade_consulta");
 			String descricao_consulta = req.getParameter("descricao_consulta");
 			
@@ -62,7 +62,9 @@ public class ConsultaServlet extends HttpServlet{
 			String especialidade_medico = req.getParameter("especialidade_medico");
 			String status_consulta = req.getParameter("status_consulta");
 			String jornada_medico = req.getParameter("jornada_medico");
-		
+			
+//			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+//			Date date_consulta = formatter.parse(data_consulta);				
 			consulta.setCod_consulta(cod_consulta);
 			consulta.setHora_consulta(hora_consulta);
 			consulta.setData_consulta(data_consulta);
