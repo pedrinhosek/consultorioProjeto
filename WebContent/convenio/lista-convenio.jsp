@@ -34,7 +34,12 @@
 							<li><a href="/projetoPI/consulta/marcar-paciente.jsp">Marcar Consulta</a></li>
 						</ul>
 					</li>
-					<li><a href="/projetoPI/agenda/agenda.jsp">Exibir Agenda</a></li>					
+					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Agenda Médica <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="/projetoPI/agenda/agenda.jsp">Agenda do Consultório</a></li>
+							<li><a href="/projetoPI/agenda/select-medico.jsp">Agenda do Médico</a></li>
+						</ul>
+					</li>
 					<li><a href="/projetoPI/medico/listar-medico.jsp">Médico</a></li>
 					<li><a href="/projetoPI/paciente/listar-paciente.jsp">Paciente</a></li>
 					<li><a href="/projetoPI/funcionario/listar-funcionario.jsp">Funcionário</a></li>

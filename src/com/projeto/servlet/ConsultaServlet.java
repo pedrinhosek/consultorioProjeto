@@ -108,6 +108,14 @@ public class ConsultaServlet extends HttpServlet{
 			}
 		}
 		
+		if(acao.equals("selectMedico")){
+			String nomeMedico = req.getParameter("nomeMedico");
+			RequestDispatcher envio = null;  
+			String urlRetorno = "/agenda/agenda-medico.jsp?nomeMedico="+nomeMedico+"";  
+			envio = req.getRequestDispatcher(urlRetorno);  
+			envio.forward(req, resp);
+		}
+		
 		
 		
 		
