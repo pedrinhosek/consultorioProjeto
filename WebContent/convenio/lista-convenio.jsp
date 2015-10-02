@@ -13,52 +13,19 @@
 </head>
 	<link rel="stylesheet" href="../bootstrap/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../scripts/css/jquery.dataTables.min.css">
 	
-	<script src="../bootstrap/js/bootstrap.min.js"></script>
 	<script src="../bootstrap/js/jquery.min.js"></script>
-	
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script src="../bootstrap/js/bootstrap.min.js"></script>
+	<script src="../scripts/jquery-1.10.2.js"></script>
+	<script src="../scripts/js/main.js"></script>
+	<script src="../scripts/jquery.dataTables.min.js"></script>
 <body>
-
-	<nav class="navbar navbar-inverse">
-		<div class="container-fluid">
-			<div class="navbar-header">
-	 			<a class="navbar-brand" href="/projetoPI/home.jsp">ToothOffice</a>
-			</div>
-			<div>
-				<ul class="nav navbar-nav">
-					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Consulta <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="/projetoPI/consulta/marcar-paciente.jsp">Marcar Consulta</a></li>
-						</ul>
-					</li>
-					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Agenda Médica <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="/projetoPI/agenda/agenda.jsp">Agenda do Consultório</a></li>
-							<li><a href="/projetoPI/agenda/select-medico.jsp">Agenda do Médico</a></li>
-						</ul>
-					</li>
-					<li><a href="/projetoPI/medico/listar-medico.jsp">Médico</a></li>
-					<li><a href="/projetoPI/paciente/listar-paciente.jsp">Paciente</a></li>
-					<li><a href="/projetoPI/funcionario/listar-funcionario.jsp">Funcionário</a></li>
-					<li><a href="/projetoPI/convenio/lista-convenio.jsp">Convênio</a></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Cadastrar <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="/projetoPI/funcionario/cadastro-funcionario.jsp">Funcionário</a></li>
-							<li><a href="/projetoPI/medico/cadastrar-medico.jsp">Médico</a></li>
-							<li><a href="/projetoPI/paciente/cadastrar-paciente.jsp">Paciente</a></li>
-							<li><a href="/projetoPI/convenio/cadastro-convenio.jsp">Convênio</a></li>
-						</ul>
-					 </li>
-					<li><a href="/projetoPI/Login/login.jsp"><span class="glyphicon glyphicon-log-out"></span> Logoff</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+	
+	<nav id="new-nav" ></nav>
+	<script>
+   		$("#new-nav").load( "../home.jsp #menuNav" );
+	</script>
 	  
 	<div class="container">
 	<ul class="breadcrumb">
@@ -68,7 +35,7 @@
 		<div class="row">
 			<div class="col-sm-3"></div>
 			<div class="col-sm-6">
-			<table class="table table-hover">
+			<table class="table table-hover" id="dataTable">
 				<thead>
 					<tr>
 						<th class="col-sm-5">Convênio</th>
@@ -76,13 +43,13 @@
 						<th class="col-sm-3" align="center">Editar/Excluir</th>
 					</tr>
 				</thead>
+				<tbody>
 				<%
 				try{
 					ConvenioDao convenioDAO = new ConvenioDao();
 					List<Convenio> convenioData = convenioDAO.List();
 					for(Convenio convenio : convenioData){
 				%>
-				<tbody>
 					<tr>
 						<td><span><%out.println(convenio.getNome());%></span></td>
 						<td><span><%out.println(convenio.getMatricula());%></span></td>
@@ -103,13 +70,13 @@
 						</form>
 						</td>
 					</tr>
-				</tbody>	
 				<%
 					}
 				}catch (Exception e) {
 					e.printStackTrace();
 				}
 				%>
+				</tbody>	
 			</table>
 			</div>
 			<div class="col-sm-3"></div>

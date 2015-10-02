@@ -47,7 +47,8 @@ CREATE TABLE convenio (
 );
 
 CREATE TABLE consulta (
-	cod_consulta
+	cod_consulta int PRIMARY KEY,
+	status_consulta VARCHAR(100) NOT NULL,
 	hora_consulta VARCHAR(100) NOT NULL,
 	data_consulta VARCHAR(100) NOT NULL,
 	especialidade_consulta VARCHAR(100) NOT NULL,
@@ -59,6 +60,5 @@ CREATE TABLE consulta (
 	estado_paciente VARCHAR(100) NOT NULL,
 	crm_medico VARCHAR(100) NOT NULL,
 	nome_medico VARCHAR(100) NOT NULL,
-	especialidade_medico VARCHAR(100) NOT NULL,
-	jornada_medico VARCHAR(100) NOT NULL
+	especialidade_medico VARCHAR(100) NOT NULL
 );
