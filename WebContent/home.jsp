@@ -4,13 +4,27 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Consultorio Odontologico</title>
 </head>
-	<link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
-	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-	
-	<script src="bootstrap/js/jquery.min.js"></script>
-	<script src="bootstrap/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="">
+<link rel="stylesheet" href="http://localhost:8081/projetoPI/scripts/css/main.css">
+<link rel="stylesheet" href="http://localhost:8081/projetoPI/scripts/libs/bootstrap/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="http://localhost:8081/projetoPI/scripts/libs/bootstrap/css/bootstrap.min.css">
+
+<script src=""></script>
+<script src="http://localhost:8081/projetoPI/scripts/libs/jquery-1.10.2.js"></script>
+<script src="http://localhost:8081/projetoPI/scripts/libs/jquery.dataTables.min.js"></script>
+<script src="http://localhost:8081/projetoPI/scripts/js/js-agenda.js"></script>
+<script src="http://localhost:8081/projetoPI/scripts/js/main.js"></script>
+<script src="http://localhost:8081/projetoPI/scripts/libs/bootstrap/js/bootstrap.js"></script>
+<script src="http://localhost:8081/projetoPI/scripts/libs/bootstrap/js/bootstrap.min.js"></script>
+<script src="http://localhost:8081/projetoPI/scripts/libs/bootstrap/js/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+
 <body>
 
 
@@ -53,12 +67,11 @@
 		</div>
 	</nav>
 	  
-	<div class="container">
-		Conteudo da página do nosso projeto
-	</div>
-
-
-
+<!--
+conteudo para iniciar toda .jsp  
+<div class="container">
+</div>
+-->
 
 </body>
 </html>

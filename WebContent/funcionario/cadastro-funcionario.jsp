@@ -1,67 +1,46 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
-	<link rel="stylesheet" href="../bootstrap/css/bootstrap-theme.min.css">
-	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-	
-	<script src="../bootstrap/js/jquery.min.js"></script>
-	<script src="../bootstrap/js/bootstrap.min.js"></script>
-	<script src="../scripts/jquery-1.10.2.js"></script>
-<body>
-	
-	<nav id="new-nav" ></nav>
-	<script>
-   		$("#new-nav").load( "../home.jsp #menuNav" );
-	</script>
-  
-	<div class="container">
-	<ul class="breadcrumb">
-		<li><a href="../template.jsp">Inicio</a> <span class="divider"></span></li>
-		<li class="active">Cadastro de Conv√™nio</li>
-	</ul>
-		<div class="row">
-		
-			<div class="col-sm-3"></div>
-			<div class="col-sm-6" >
-				<form method="post" action="../funcionario">
-					<input type="hidden" name="acao" value="cadastrar">
-					<h2>Cadastro de novo Funcio√°rio</h2>
-					<label for="usr">CPF:</label>
-					<input type="text" class="form-control" name="cpf" required />
-					<label for="usr">Nome Completo</label>
-					<input type="text" class="form-control" name="nome" required />
-					<label for="usr">E-mail:</label>
-					<input type="text" class="form-control" name="email" required />
-					<label for="usr">Cargo do Funcion√°rio</label>
-					<input type="text" class="form-control" name="cargo" required />
-					<label>Selecione o tipo de Usu√°rio</label>
-					<select class="form-control" name="tipoUsu" required >
-						<option></option>
-						<option>Administrador</option>
-						<option>Paciente</option>
-						<option>Neutro</option>
-					</select>
-					<br />
-					<center>
-						<label for="usr">Login:</label>
-						<input type="text" name="usuario" required />
-						<label for="usr">Senha:</label>
-						<input type="password" name="senha" required />
-					</center>
-					<br />
-					<div style="float:right;">
-						<button type="submit" class="btn btn-success">Cadastrar</button>
-					</div><br /><br />				
-			  	</form>
-			</div>
-			<div class="col-sm-3" ></div>
-			
-		</div>
-	</div>
+<jsp:include page="../home.jsp"></jsp:include>
 
-</body>
-</html>
+<div class="container">
+<ul class="breadcrumb">
+	<li><a href="../template.jsp">Inicio</a> <span class="divider"></span></li>
+	<li class="active">Cadastro de ConvÍnio</li>
+</ul>
+	<div class="row">
+	
+		<div class="col-sm-3"></div>
+		<div class="col-sm-6" >
+			<form method="post" action="../funcionario">
+				<input type="hidden" name="acao" value="cadastrar">
+				<h2>Cadastro de novo Funcio·rio</h2>
+				<label for="usr">CPF:</label>
+				<input type="text" class="form-control" name="cpf" required />
+				<label for="usr">Nome Completo</label>
+				<input type="text" class="form-control" name="nome" required />
+				<label for="usr">E-mail:</label>
+				<input type="text" class="form-control" name="email" required />
+				<label for="usr">Cargo do Funcion·rio</label>
+				<input type="text" class="form-control" name="cargo" required />
+				<label>Selecione o tipo de Usu·rio</label>
+				<select class="form-control" name="tipoUsu" required >
+					<option></option>
+					<option>Administrador</option>
+					<option>Paciente</option>
+					<option>Neutro</option>
+				</select>
+				<br />
+				<center>
+					<label for="usr">Login:</label>
+					<input type="text" name="usuario" required />
+					<label for="usr">Senha:</label>
+					<input type="password" name="senha" required />
+				</center>
+				<br />
+				<div style="float:right;">
+					<button type="submit" class="btn btn-success">Cadastrar</button>
+				</div><br /><br />				
+		  	</form>
+		</div>
+		<div class="col-sm-3" ></div>
+		
+	</div>
+</div>
